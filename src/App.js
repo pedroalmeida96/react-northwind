@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Router, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import CategoriesList from './components/CategoriesList';
@@ -10,13 +10,11 @@ function App() {
     <BrowserRouter>
       <div>
         <Header />
-        <div className="main-content">
-          <Routes>
-            <Route component={CategoriesList} path="/" />
-            <Route component={AddCategory} path="/add" />
-          </Routes>
-        </div>
       </div>
+      <Routes>
+        <Route path="/home" component={CategoriesList} />
+        <Route path="/add" component={AddCategory} />
+      </Routes>
     </BrowserRouter>
   );
 }
